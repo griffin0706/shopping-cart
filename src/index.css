@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Press+Start+2P&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+:root {
+  --background-color: #070707;
+  --nav-background-color: #111111;
+  --color: rgb(214, 212, 212);
+  --color-focus: #fff;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+.main-navigation {
+  display: flex;
+
+  justify-content: space-between;
+  padding: 25px;
+  background-color: var(--nav-background-color);
+  margin-bottom: 10px;
+}
+
+.main-navigation > ul {
+  display: flex;
+  gap: 20px;
+  background-color: var(--nav-background-color);
+}
+
+a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: var(--nav-background-color);
+}
+
+a:hover {
+  color: var(--color-focus);
+}
+
+a:focus {
+  border-radius: 5px;
+  color: var(--color-focus);
+  border: 1px solid white;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--color-focus);
+}
+
+button:focus {
+  border-radius: 5px;
+  color: var(--color-focus);
+  border: 1px solid white;
+}
+
+.center {
+  margin: auto;
+  border: 2px solid white;
+}
+
+.error-page {
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
+
+.cart-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count {
+  background-color: rgb(6, 37, 216);
+  padding: 3px 8px;
+  border-radius: 50px;
+}

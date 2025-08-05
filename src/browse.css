@@ -1,0 +1,42 @@
+.browse-container {
+  margin: auto;
+  max-width: 1300px;
+  height: 600px;
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  text-align: center;
+}
+
+.browse-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+  margin: 5px;
+}
+
+.item-description {
+  display: flex;
+
+  flex-direction: column;
+  align-items: start;
+  padding: 10px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.name-cart {
+  display: flex;
+  align-items: center;
+}
