@@ -1,37 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
+import { ShopContext } from "../NavBar";
+
 const Cart = () => {
-  const [storage, setStorage] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [cartItem, setCartItem] = useState(() => {
-    const data = window.localStorage.getItem("CART");
-    const initialValue = JSON.parse(data);
-    return initialValue || "";
-  });
+  const { cartItems, deleteItem } = useContext(ShopContext);
 
-  useEffect(() => {
-    window.localStorage.setItem("CART", JSON.stringify(cartItem));
-  }, [cartItem]);
-
-  const deleteItem = (id) => {
-    const updated = cartItem.filter((item) => item.id !== id);
-    setCartItem(updated);
-  };
-
-  if (!storage) {
-    return <div>Error</div>;
-  }
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="cart-container"
     >
-      {cartItem.length > 0 ? (
+      {cartItems.length > 0 ? (
         <>
           <div className="cart-holder">
-            {cartItem.map((cart) => {
+            {cartItems.map((cart) => {
               return (
                 <div className="cart-item-container" key={cart.id}>
                   <img className="cart-image" src={cart.image}></img>
@@ -56,7 +40,7 @@ const Cart = () => {
               <div>Price</div>
               <div>
                 ₱
-                {cartItem.reduce((total, item) => {
+                {cartItems.reduce((total, item) => {
                   return total + item.price * item.quantity;
                 }, 0)}
               </div>
@@ -69,7 +53,7 @@ const Cart = () => {
               <div className="subtotal">Subtotal</div>
               <div className="subtotal">
                 ₱
-                {cartItem.reduce((total, item) => {
+                {cartItems.reduce((total, item) => {
                   return total + item.price * item.quantity;
                 }, 0)}
               </div>
@@ -79,7 +63,7 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <div class="no-items">No Items in cart.</div>
+        <div className="no-items">No Items in cart.</div>
       )}
     </motion.div>
   );

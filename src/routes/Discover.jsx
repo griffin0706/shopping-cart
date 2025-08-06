@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
-import { games } from "../storage";
+import { ShopContext } from "../NavBar";
+import { useNavigate } from "react-router-dom";
 
 const Discover = () => {
-  const [storage, setStorage] = useState(games);
+  const { products, addToCart } = useContext(ShopContext);
   const [currentImage, setCurrentImage] = useState(0);
   const [slideToggle, setSlideToggle] = useState(false);
-
-  useEffect(() => {
-    window.localStorage.setItem("GAME_STORAGE", JSON.stringify(storage));
-  }, [storage]);
-
-  useEffect(() => {
-    const data = window.localStorage.getItem("GAME_STORAGE");
-    setStorage(JSON.parse(data));
-  }, []);
+  const navigate = useNavigate();
 
   const changeImage = (index) => {
     setSlideToggle(true);
@@ -32,18 +25,22 @@ const Discover = () => {
       className="discover-container"
     >
       <div className={slideToggle ? "image-slider slide-in" : "image-slider"}>
-        <img src={storage[currentImage].image} className="image" />
+        <img src={products[currentImage].image} className="image" />
         <div className="image-description">
-          <div>{storage[currentImage].name}</div>
-          <div>{storage[currentImage].description}</div>
-          <div>₱{storage[currentImage].price}</div>
-          {/* <div className="image-button-container">
-            <button>Add to Cart</button>
-          </div> */}
+          <div>{products[currentImage].name}</div>
+          <div>{products[currentImage].description}</div>
+          <div>₱{products[currentImage].price}</div>
+          <div className="image-button-container">
+            <button
+              onClick={() => navigate(`/game/${products[currentImage].id}`)}
+            >
+              View
+            </button>
+          </div>
         </div>
       </div>
       <div className="image-label">
-        {storage.slice(0, 6).map((img, index) => {
+        {products.slice(0, 6).map((img, index) => {
           return (
             <button key={img.id} onClick={() => changeImage(index)}>
               {img.name}
