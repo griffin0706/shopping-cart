@@ -37,6 +37,18 @@
 }
 
 .name-cart {
+  margin: auto;
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
+}
+
+.cartBtn:focus {
+  border: 1px solid rgb(4, 199, 37);
+}
+
+.cartBtn {
+  border: 1px solid blue;
+  border-radius: 5px;
 }

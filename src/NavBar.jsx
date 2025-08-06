@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const NavBar = () => {
-  const [cartItem, setCartItem] = useState(() => {
-    const data = window.localStorage.getItem("CART");
-    const initialValue = JSON.parse(data);
-    return initialValue || "";
-  });
+  // const [cartItem, setCartItem] = useState(() => {
+  //   const data = window.localStorage.getItem("CART");
+  //   const initialValue = JSON.parse(data);
+  //   return initialValue || "";
+  // });
 
   return (
     <>
@@ -18,9 +18,9 @@ const NavBar = () => {
         </ul>
         <div className="cart-count">
           <Link to="Cart">Cart</Link>
-          <div className="count">
+          {/* <div className="count">
             {cartItem.length > 0 ? cartItem.length : 0}
-          </div>
+          </div> */}
         </div>
       </nav>
       <div className="main-container">

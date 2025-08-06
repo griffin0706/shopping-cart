@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiCartPlus } from "@mdi/js";
+import { mdiPlusCircle } from "@mdi/js";
 import { motion } from "framer-motion";
 
 const Browse = () => {
@@ -56,8 +57,8 @@ const Browse = () => {
             <div className="item-description">
               <div className="name-cart">
                 <div className="bold">{game.name}</div>
-                <button onClick={() => addToCart(game)}>
-                  <Icon path={mdiCartPlus} size={0.8} />
+                <button className="cartBtn" onClick={() => addToCart(game)}>
+                  Add to cart
                 </button>
               </div>
               <div>₱ {game.price}</div>
